@@ -16,26 +16,15 @@ class EventsController extends ApiController {
 
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
-		EventsController::create($input);
-		return Response::json('ok');
-	}
-
-
-	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
+		Happening::create($input);
+		return Response::make('', 200);
 	}
 
 
@@ -47,9 +36,12 @@ class EventsController extends ApiController {
 	 */
 	public function show($id)
 	{
-		//
+		return Response::json(Happening::find($id));
 	}
 
+	public function getComments($id){
+		return Response::json(Happening::find($id)->comments)
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -57,10 +49,6 @@ class EventsController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
-	}
 
 
 	/**
@@ -71,7 +59,10 @@ class EventsController extends ApiController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
+		$happening = Happening::find($id);
+		$happening->update($input);
+		return Response::json('ok')
 	}
 
 
@@ -83,7 +74,8 @@ class EventsController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Happening::find($id)->delete()
+		return Response::make('', 200);
 	}
 
 

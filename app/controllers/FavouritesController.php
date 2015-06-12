@@ -22,7 +22,7 @@ class FavouritesController extends ApiController {
 	{
 		$input=Input::only('event_id','user_id');
 		Favourite::create($input);
-		return Response::json('ok');
+		return Response::make('', 200);
 	}
 
 

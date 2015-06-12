@@ -1,6 +1,6 @@
 <?php
-use LaravelBook\Ardent\Ardent;
-class Event extends Ardent {
+class Happening extends Eloquent {
+  protected $table = 'events';
 	protected $fillable = ['title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue'];
 
   public function attachments()
@@ -14,5 +14,9 @@ class Event extends Ardent {
 
   public function publisher(){
     return $this->belongsTo('User', 'user_id');
+  }
+
+  public function comments(){
+    return $this->hasMany('Comment');
   }
 }

@@ -6,4 +6,8 @@ class Comment extends \Eloquent {
   public function event(){
     return $this->belongsTo()
   }
+
+  public function user(){
+    return $this->belongsTo('User');
+  }
 }
