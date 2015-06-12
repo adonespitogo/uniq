@@ -15,3 +15,5 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::post('oauth/access_token', 'OAuthController@postAccessToken');
