@@ -4,9 +4,9 @@ class ApiController extends Controller {
   protected $authorizer;
   public function __construct(Authorizer $authorizer)
   {
-      if (Agent::isMobile() || Agent::isTablet()){
+      if (Agent::isMobile() || Agent::isTablet() || Request::header('Authorization') != NULL){
         $this->authorizer = $authorizer;
-        $this->beforeFilter('check-authorization-params');
+        $this->beforeFilter('oauth');
       }else{
         $this->beforeFilter('auth');
       }
