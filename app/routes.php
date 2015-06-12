@@ -2,7 +2,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+  return View::make('hello');
 });
 
 
@@ -20,6 +20,7 @@ Route::controller('favourite','FavouritesController');
 
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
 Route::controller('oauth', 'OAuthController');
+Route::get('me', 'UsersController@currentUser');
 
 //
 
@@ -39,6 +40,6 @@ Route::get('users/logout', 'UsersController@logout');
 Route::get('logout', 'UsersController@logout');
 Route::controller('user', 'UsersController');
 App::missing(function($exception){
-	return '404 template';
+  return '404 template';
 });
 

@@ -17,7 +17,8 @@
         })
         .state('app.home', {
           url: 'home',
-          template: JST['app/views/home']
+          template: JST['app/views/home'],
+          controller: 'HomeCtrl as HomeCtrl'
         })
         .state('app.post', {
           url: 'post/:id',

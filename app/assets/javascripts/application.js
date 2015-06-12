@@ -19,6 +19,7 @@
 //= require app/app
 //= require app/routes
 //= require app/config
+//= require app/init
 //= require_tree ./app/controllers
 //= require_tree ./app/services
 //= require_tree ./app/views

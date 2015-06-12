@@ -3,8 +3,11 @@
 
   window.App.run([
     '$rootScope',
-    function ($rootScope) {
+    '$window',
+    function ($rootScope, $window) {
       $rootScope.title = 'Uniq';
+      $rootScope.user = angular.copy($window.user);
+      delete $window.user;
     }
   ]);
 
