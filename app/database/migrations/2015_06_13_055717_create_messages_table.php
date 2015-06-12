@@ -12,7 +12,7 @@ class CreateMessagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('un_messages',function($table){
+		Schema::create('messages',function($table){
          $table->increments('id');
          $table->integer('sender_id');
          $table->integer('recipient_id');
@@ -29,7 +29,7 @@ class CreateMessagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_messages');
+		Schema::drop('messages');
 	}
 
 }

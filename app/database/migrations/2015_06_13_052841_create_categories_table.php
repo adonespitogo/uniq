@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('un_categories',function($table){
+		Schema::create('categories',function($table){
          $table->increments('id');
          $table->string('name');
          $table->text('description');
@@ -29,7 +29,7 @@ class CreateCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_categories');
+		Schema::drop('categories');
 
 	}
 

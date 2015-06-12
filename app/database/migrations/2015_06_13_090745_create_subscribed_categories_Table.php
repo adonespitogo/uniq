@@ -12,7 +12,7 @@ class CreateSubscribedCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('subscribed_categories_Table', function(Blueprint $table)
+		Schema::create('users_subscribed_categories', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
@@ -29,7 +29,7 @@ class CreateSubscribedCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('subscribed_categories_Table');
+		Schema::drop('users_subscribed_categories');
 	}
 
 }

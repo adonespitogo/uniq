@@ -28,7 +28,7 @@ class User extends Eloquent implements ConfideUserInterface {
 		return $this->belongsToMany('Category', 'users_subscribed_categories', 'user_id', 'category_id');
 	}
 	public function events(){
-		// return $this->hasMany('subscribed_categories', '');
+		return $this->hasMany('Category');
 	}
 
 	public function received_messages(){
