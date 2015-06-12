@@ -13,8 +13,8 @@ class ApiController extends Controller {
   }
 
   public function current_user(){
-    if (Agent::isMobile() || Agent::isTablet()){
-      return User::find(Authorizer::getResourceOwnerId());
+    if (Agent::isMobile() || Agent::isTablet() || Request::header('Authorization') != NULL){
+      return User::find($this->authorizer->getResourceOwnerId());
     }else{
       return Auth::user();
     }

@@ -25,7 +25,7 @@ class User extends Eloquent implements ConfideUserInterface {
 		return in_array(Auth::User()->roles, $role);
 	}
 	public function subscribed_categories(){
-		return $this->belongsToMany('Category', 'users_subscribed_categories', 'user_id', 'category_id');
+		return $this->belongsToMany('Category', 'users_subscribed_categories');
 	}
 	public function received_messages(){
 		return $this->hasMany('Message', 'recipient_id');
@@ -44,11 +44,17 @@ class User extends Eloquent implements ConfideUserInterface {
 	{
 		return $this->hasMany('Comment');
 	}
-	public function events($value='')
-	{
-		return Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
+	public function events($page, $limit)
+	{	
+		$items = Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
 			  ->leftJoin('users_subscribed_categories', 'users_subscribed_categories.category_id', '=', 'events_categories.category_id')
-			  ->where('users_subscribed_categories.user_id', $this->id)->get();
+			  ->where('users_subscribed_categories.user_id', $this->id);
+
+		return [
+			$items->skip($limit * ($page - 1))->take($limit)->get()->all(),
+			$items->count(),
+			$page
+		];
 	}
 
 }

@@ -7,13 +7,15 @@ class EventsController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index($perPage)
+	public function index()
 	{
-		$events = $this->current_user()->events();
-		Paginator::make($events, count($events), $perPage);
+		return Response::json($this->current_user()->events());
 	}
 
-
+	public function getByPage($page = 1, $limit = 10){
+		$result = $this->current_user()->events($page, $limit);
+		Paginator::make($result[0], $result[1], $result[2]);
+	}
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -22,7 +24,8 @@ class EventsController extends ApiController {
 	public function store()
 	{
 		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
-		Happening::create($input);
+		$happening = Happening::create($input);
+		$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
 		return Response::make('', 200);
 	}
 

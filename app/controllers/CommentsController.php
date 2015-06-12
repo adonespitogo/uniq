@@ -17,14 +17,14 @@ class CommentsController extends ApiController {
 
 
 	/**
-
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$input = Input::only('event_id','content','user_id');
+		$input = Input::only('event_id','content');
+		$input['user_id'] = $this->current_user()->id;
 		Comment::create($input);
 
 		return Response::make('', 200);
