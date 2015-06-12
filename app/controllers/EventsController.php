@@ -39,7 +39,7 @@ class EventsController extends ApiController {
 	}
 
 	public function getComments($id){
-		return Response::json(Happening::find($id)->comments)
+		return Response::json(Happening::find($id)->comments);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class EventsController extends ApiController {
 		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
 		$happening = Happening::find($id);
 		$happening->update($input);
-		return Response::json('ok')
+		return Response::make('', 200);
 	}
 
 
@@ -73,7 +73,7 @@ class EventsController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		Happening::find($id)->delete()
+		Happening::find($id)->delete();
 		return Response::make('', 200);
 	}
 }
