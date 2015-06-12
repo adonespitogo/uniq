@@ -1,6 +1,6 @@
 <?php
 
-class FavouritesController extends \BaseController {
+class FavouritesController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.

@@ -1,6 +1,6 @@
 <?php
 
-class MessagesController extends \BaseController {
+class MessagesController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.

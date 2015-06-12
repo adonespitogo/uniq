@@ -1,6 +1,6 @@
 <?php
 
-class EventsController extends \BaseController {
+class EventsController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,7 @@ class EventsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return Response::json([]);
 	}
 
 

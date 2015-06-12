@@ -126,7 +126,9 @@ return array(
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
 		'Zizaco\Confide\ServiceProvider',
 		'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
-		'Way\Generators\GeneratorsServiceProvider'
+		'Way\Generators\GeneratorsServiceProvider',
+		'Jenssegers\Agent\AgentServiceProvider',
+
 	),
 
 	/*
@@ -195,6 +197,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Authorizer' 				=> 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
 		'Confide' 					=> 'Zizaco\Confide\Facade',
+		'Agent'							=> 'Jenssegers\Agent\Facades\Agent',
 	),
 
 );

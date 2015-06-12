@@ -1,6 +1,6 @@
 <?php
 
-class CommentsController extends \BaseController {
+class CommentsController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.
