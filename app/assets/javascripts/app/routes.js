@@ -21,7 +21,8 @@
         })
         .state('app.post', {
           url: 'post/:id',
-          template: JST['app/views/post']
+          template: JST['app/views/post'],
+          controller: 'PostCtrl as PostCtrl'
         });
 
     }

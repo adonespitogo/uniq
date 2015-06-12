@@ -12,16 +12,26 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" collapse="!isCollapsed">
       <ul class="nav navbar-nav">
         <li>
-          <a href="../getting-started/">fasdf</a>
+          <a href="../getting-started/">Categories</a>
+        </li>
+        <li>
+          <a href="../getting-started/">Favorites</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://expo.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a></li>
+          <li class="dropdown" dropdown="">
+              <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                  Adones Pitogo <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout <span class="fa fa-sign-out pull-right"></span></a></li>
+              </ul>
+          </li>
       </ul>
     </nav>
   </div>
 </header>
 
-<div class="container" ui-view>
-  
-</div>
+<div class="container" ui-view></div>
