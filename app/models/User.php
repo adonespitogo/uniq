@@ -30,4 +30,13 @@ class User extends Eloquent implements ConfideUserInterface {
 	public function events(){
 		// return $this->hasMany('subscribed_categories', '');
 	}
+
+	public function received_messages(){
+		return $this->hasMany('Message', 'recipient_id');
+	}
+
+	public function sent_messages(){
+		return $this->hasMany('Message','sender_id');
+	}
+
 }

@@ -7,4 +7,8 @@ class Event extends Ardent {
   {
       return $this->morphTo("Attachment", "attachable");
   }
+
+  public function categories(){
+    return $this->belongsToMany('Category');
+  }
 }
