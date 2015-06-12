@@ -4,7 +4,8 @@
 
   window.App = angular.module('Uniq', [
     'ngResource',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ]);
 
 })(window);
