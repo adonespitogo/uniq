@@ -185,6 +185,10 @@ class UsersController extends Controller
         }
     }
 
+    public function getAccount(){
+        return View::make('users.account')->with('user', Auth::User());
+    }
+
     /**
      * Log the user out of the application.
      *
