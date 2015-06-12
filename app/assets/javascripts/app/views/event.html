@@ -1,9 +1,10 @@
-<h1>Title</h1>
-<h3>Tue 11:00AM - Wed 12:00 PM @IT Park, Lahug, Cebu City, Philippines</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi ad amet id exercitationem itaque delectus odio, neque explicabo, ducimus dolorum alias reiciendis. Nisi ratione, earum sint nostrum dignissimos nobis iure.</p>
+<h1>{{event.title}}</h1>
+<h3>{{event.start_datetime | amCalendar}} - {{event.end_datetime | amCalendar}} @{{event.venue}}</h3>
+<p>{{event.description}}</p>
 
 <hr>
 <h3>Comments</h3>
+
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="i in [1,2,3]">
     <div class="row">

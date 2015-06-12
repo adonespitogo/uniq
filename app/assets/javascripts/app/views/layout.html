@@ -21,12 +21,12 @@
       <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" dropdown="">
               <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
-                  Adones Pitogo <b class="caret"></b>
+                  {{user.first_name}} {{user.last_name}} <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout <span class="fa fa-sign-out pull-right"></span></a></li>
+                <li><a href="/users/logout">Logout <span class="fa fa-sign-out pull-right"></span></a></li>
               </ul>
           </li>
       </ul>

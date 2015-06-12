@@ -20,10 +20,10 @@
           template: JST['app/views/home'],
           controller: 'HomeCtrl as HomeCtrl'
         })
-        .state('app.post', {
-          url: 'post/:id',
-          template: JST['app/views/post'],
-          controller: 'PostCtrl as PostCtrl'
+        .state('app.event', {
+          url: 'event/:id',
+          template: JST['app/views/event'],
+          controller: 'EventCtrl as EventCtrl'
         });
 
     }

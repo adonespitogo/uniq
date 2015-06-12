@@ -6,6 +6,7 @@
     'ngResource',
     'ui.router',
     'ui.bootstrap',
+    'angularMoment'
   ]);
 
 })(window);
