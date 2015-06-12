@@ -1,4 +1,34 @@
-<div ui-view="header">
-  
+<div ng-controller="LayoutCtrl as LayoutCtrl">
+
+  <md-toolbar class="md-whiteframe-glow-z1 md-default-theme header">
+
+    <div class="md-toolbar-tools" ng-click="LayoutCtrl.toggleLeftMenu()">
+      <a class="fa fa-bars"></a>
+      {{title}}
+    </div>
+
+  </md-toolbar>
+
+  <md-sidenav md-component-id="left" class="md-sidenav-left">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <img src="/assets/profile.jpg" alt="" class="profile-pic">
+        Adones Pitogo
+      </div>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item>
+        <md-button>
+          <span class="fa fa-home"></span> Home
+        </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+  <div layout="row">
+    <div flex ui-view></div>
+  </div>
+
 </div>
-<div ui-view="content" class="container"></div>

@@ -18,14 +18,7 @@
 
         .state('app.home', {
           url: 'home',
-          views: {
-            header: {
-              template: JST['app/views/header']
-            },
-            content: {
-              template: JST['app/views/home']
-            }
-          }
+          template: JST['app/views/home']
         });
 
     }
