@@ -1,10 +1,16 @@
 (function (window) {
   'use strict';
 
-  window.App.controller('HomeCtrl', ['$rootScope', function ($rootScope) {
+  window.App.controller('HomeCtrl', [
+    '$scope',
+    '$rootScope',
+    'Event',
+    function ($scope, $rootScope, Event) {
 
-    console.log($rootScope.user);
+      Event.query(function (events) {
+        $scope.events = events;
+      });
 
-  }]);
+    }]);
 
 })(window);

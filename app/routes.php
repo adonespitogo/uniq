@@ -2,6 +2,9 @@
 
 Route::get('/', function()
 {
+  if (Auth::guest()) {
+    return Redirect::to('/users/login');
+  }
   return View::make('hello');
 });
 
@@ -20,7 +23,7 @@ Route::controller('favourite','FavouritesController');
 
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
 Route::controller('oauth', 'OAuthController');
-Route::get('me', 'UsersController@currentUser');
+Route::get('me', array('before' => 'auth', 'uses' => 'UsersController@currentUser'));
 
 //
 

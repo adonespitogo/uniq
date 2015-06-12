@@ -1,6 +1,9 @@
 $(document).ready(function () {
-  $.get('/me', function (user) {
+  $.get('/me').success(function (user) {
     window.user = user;
     angular.bootstrap(document, ['Uniq']);
+  })
+  .fail(function(){
+    window.location = '/users/login'
   });
 });
