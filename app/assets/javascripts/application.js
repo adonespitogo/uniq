@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require angular
-//= require angular-animate
-//= require angular-aria
-//= require angular-material
 //= require angular-resource
 //= require angular-ui-router
+//= require ui-bootstrap-tpls-0.13.0
+//
 //= require app/app
 //= require app/routes
 //= require app/config
