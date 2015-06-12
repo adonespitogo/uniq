@@ -35,19 +35,15 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {	
-	if (Agent::isMobile() || Agent::isTablet()){
-		
-	}else{
-		if (Auth::guest())
+	if (Auth::guest())
+	{
+		if (Request::ajax())
 		{
-			if (Request::ajax())
-			{
-				return Response::make('Unauthorized', 401);
-			}
-			else
-			{
-				return Redirect::guest('login');
-			}
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
 		}
 	}
 });

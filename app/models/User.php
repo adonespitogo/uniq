@@ -22,6 +22,12 @@ class User extends Eloquent implements ConfideUserInterface {
 	protected $hidden = array('password', 'remember_token');
 
 	public function hasRole($role){
-		return false;#in_array(Auth::User()->roles, $role)
+		return in_array(Auth::User()->roles, $role);
+	}
+	public function subscribed_categories(){
+		return $this->belongsToMany('Category', 'users_subscribed_categories', 'user_id', 'category_id');
+	}
+	public function events(){
+		// return $this->hasMany('subscribed_categories', '');
 	}
 }

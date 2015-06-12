@@ -22,7 +22,7 @@ class OAuthController extends Controller
     }
 
     public function getAuthorize()
-    {
+    {   
         return View::make('authorization-form', $this->authorizer->getAuthCodeRequestParams());
     }
 
