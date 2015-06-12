@@ -1,0 +1,37 @@
+<header class="navbar navbar-inverse navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a ui-sref="app.home" class="navbar-brand">Uniq</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" collapse="!isCollapsed">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../getting-started/">Categories</a>
+        </li>
+        <li>
+          <a href="../getting-started/">Favorites</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" dropdown="">
+              <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                  Adones Pitogo <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout <span class="fa fa-sign-out pull-right"></span></a></li>
+              </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container" ui-view></div>
