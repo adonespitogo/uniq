@@ -124,7 +124,7 @@ return array(
 		'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 		'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
-		// 'Zizaco\Confide\ServiceProvider',
+		'Zizaco\Confide\ServiceProvider',
 
 	),
 
@@ -193,7 +193,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Authorizer' 				=> 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
-		// 'Confide' 					=> 'Zizaco\Confide\Facade',
+		'Confide' 					=> 'Zizaco\Confide\Facade',
 	),
 
 );
