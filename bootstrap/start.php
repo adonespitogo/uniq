@@ -28,7 +28,8 @@ $env = $app->detectEnvironment(array(
   'local' => array(
     'vagrant-ubuntu-trusty-64',
     'adones-S551LB',
-    'codelab'
+    'codelab',
+    'CERBERUS'
   ),
 ));
 

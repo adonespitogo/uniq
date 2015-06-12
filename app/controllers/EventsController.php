@@ -77,6 +77,4 @@ class EventsController extends ApiController {
 		Happening::find($id)->delete()
 		return Response::make('', 200);
 	}
-
-
 }

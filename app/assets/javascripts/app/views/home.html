@@ -1,0 +1,20 @@
+
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="event in events">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/assets/profile.jpg" alt="" class="img-responsive">
+      </div>
+      <div class="col-md-8">
+        <h3>
+          <a ui-sref="app.event({id: event.id})">{{event.title}}</a>
+        </h3>
+        <h4>Tue 11:00 AM - 12:00PM @ IT Park, Lahug, Cebu City</h4>
+        <p>
+          {{event.description}}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
