@@ -7,11 +7,10 @@ class EventsController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($perPage)
 	{
-		return Response::json(
-			$this->current_user()->events
-		);
+		$events = $this->current_user()->events();
+		Paginator::make($events, count($events), $perPage);
 	}
 
 
