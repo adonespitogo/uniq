@@ -11,4 +11,8 @@ class Event extends Ardent {
   public function categories(){
     return $this->belongsToMany('Category');
   }
+
+  public function publisher(){
+    return $this->belongsTo('User', 'user_id');
+  }
 }

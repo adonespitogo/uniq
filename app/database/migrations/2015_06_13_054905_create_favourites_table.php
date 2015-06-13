@@ -12,7 +12,7 @@ class CreateFavouritesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('un_favourites',function($table){
+		Schema::create('users_favourite_events',function($table){
          $table->increments('id');
          $table->integer('event_id');
          $table->integer('user_id');
@@ -27,7 +27,7 @@ class CreateFavouritesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_favourites');
+		Schema::drop('users_favourite_events');
 	}
 
 }

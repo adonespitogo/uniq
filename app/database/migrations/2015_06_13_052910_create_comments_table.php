@@ -12,7 +12,7 @@ class CreateCommentsTable extends Migration {
 	 */
 	public function up()
 	{
-	   Schema::create('un_comments',function($table){
+	   Schema::create('comments',function($table){
          $table->increments('id');
          $table->integer('event_id');
          $table->text('content');
@@ -28,7 +28,7 @@ class CreateCommentsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_comments');
+		Schema::drop('comments');
 	}
 
 }

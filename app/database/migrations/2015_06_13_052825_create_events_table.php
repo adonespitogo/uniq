@@ -12,7 +12,7 @@ class CreateEventsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('un_events',function($table){
+		Schema::create('events',function($table){
          $table->increments('id');
          $table->string('title');
          $table->text('description');
@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration {
          $table->dateTime('start_datetime');
          $table->dateTime('end_datetime');
          $table->string('venue');
+         $table->integer('user_id');
 		 $table->timestamps();
        });
 	}
@@ -31,7 +32,7 @@ class CreateEventsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_events');
+		Schema::drop('events');
 	}
 
 }

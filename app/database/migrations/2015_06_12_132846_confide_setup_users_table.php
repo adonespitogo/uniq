@@ -7,6 +7,7 @@ class ConfideSetupUsersTable extends Migration
     /**
      * Run the migrations.
      */
+
     public function up()
     {
         // Creates the users table
@@ -18,6 +19,9 @@ class ConfideSetupUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->datetime('birth_date');
+            $table->string('gender');
+            $table->string('location');
+            $table->enum('role',['user','admin','approver']);
             $table->string('confirmation_code');
             $table->string('remember_token')->nullable();
             $table->boolean('confirmed')->default(false);

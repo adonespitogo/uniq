@@ -12,7 +12,7 @@ class CreateEventsCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('un_events_categories',function($table){
+		Schema::create('events_categories',function($table){
          $table->increments('id');
          $table->integer('event_id');
          $table->integer('category_id');
@@ -27,7 +27,7 @@ class CreateEventsCategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('un_events_categories');
+		Schema::drop('events_categories');
 	}
 
 
