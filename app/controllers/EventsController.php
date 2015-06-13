@@ -68,13 +68,17 @@ class EventsController extends ApiController {
 
 	public function getMarkFavorite($id){
 		$data = DB::table('users_favourite_events')->where(['user_id'=>$this->current_user()->id, 'event_id'=>$id])->count();
-		if ($data <= 0) DB::table('users_favourite_events')->create(['user_id'=>$this->current_user()->id, 'event_id'=>$id]);
+		if ($data <= 0) DB::table('users_favourite_events')->insert(['user_id'=>$this->current_user()->id, 'event_id'=>$id]);
 		return Response::json('',200);
 	}
 
 	public function getUnmarkFavorite($id){
 		DB::table('users_favourite_events')->where(['user_id'=>$this->current_user()->id, 'event_id'=>$id])->delete();
 		return Response::json('',200);
+	}
+
+	public function getFavorites(){
+		return Response::json($this->current_user()->favourite_events()->get());
 	}
 	/**
 	 * Remove the specified resource from storage.
