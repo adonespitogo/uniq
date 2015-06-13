@@ -9,15 +9,42 @@ class CategoriesController extends ApiController {
 	 */
 	public function index()
 	{
-		$categories = $this->current_user()->subscribed_categories;
+			    $categories_id = $this->current_user()->subscribed_categories()->get();
+		        $all_categories =DB::table('categories')->get();
+		        $returns = [];
+		        $raw_cat_ids = [];
+		        foreach ($categories_id as $key => $value) {
+		        	array_push($raw_cat_ids, $value->id);
+		        }
+		        foreach ($all_categories as $key => $cat) {
+		        	$item = (array)$cat;
+		        	$item['followed'] = in_array($cat->id,$raw_cat_ids);
+		        	array_push($returns,$item);
+		        }
+		      return Response::json($returns);
+
+	}
+   public function getMyCategories($value='')
+   {
+     	$categories = $this->current_user()->subscribed_categories()->get();
 		if (count($categories) > 0){
-			return Response::json($categories);
+			    $categories_id = $this->current_user()->subscribed_categories()->get();
+		        $all_categories =DB::table('categories')->get();
+		        $returns = [];
+		        $raw_cat_ids = [];
+		        foreach ($categories_id as $key => $value) {
+		        	array_push($raw_cat_ids, $value->id);
+		        }
+		        foreach ($all_categories as $key => $cat) {
+		        	$item = (array)$cat;
+		        	$item['followed'] = in_array($cat->id,$raw_cat_ids);
+		        	array_push($returns,$item);
+		        }
+		      return Response::json($returns);
 		}else{
 			return Response::json([]);
 		}
-
-	}
-
+   }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -98,6 +125,21 @@ class CategoriesController extends ApiController {
 		Category::find(Input::get('id'))->delete();
 		return Response::make('', 200);
 	}
+
+	 public function getFollow($id=0)
+    {
+    	$data = DB::table('users_subscribed_categories')->where('user_id','=',$this->current_user()->id)->where('category_id','=',$id)->count();
+        if( $data <= 0 )  DB::table('users_subscribed_categories')->insert(['user_id' => $this->current_user()->id,'category_id' => $id]);
+        return Response::make('',200);
+    }
+    public function getUnFollow($id)
+    {
+    	 $data = DB::table('users_subscribed_categories')->where('user_id','=',$this->current_user()->id)->where('category_id','=',$id)->first();
+        if( count($data) >= 1 )  DB::table('users_subscribed_categories')->where('user_id','=',$this->current_user()->id)->where('category_id','=',$id)->delete();
+
+        return Response::make('',200);
+    }
+
 
 
 }
