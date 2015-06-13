@@ -30,6 +30,11 @@
           template: JST['app/views/event'],
           controller: 'EventCtrl as EventCtrl'
         })
+        .state('app.categories', {
+          url: 'categories',
+          template: JST['app/views/categories'],
+          controller: 'CategoriesCtrl as CategoriesCtrl'
+        })
         .state('app.settings', {
           url: 'settings',
           template: JST['app/views/settings'],

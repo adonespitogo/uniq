@@ -1,4 +1,4 @@
-
+<h1>Upcoming Events</h1>
 
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="event in events">
@@ -10,7 +10,8 @@
         <h3>
           <a ui-sref="app.event({id: event.id})">{{event.title}}</a>
         </h3>
-        <h4>Tue 11:00 AM - 12:00PM @ IT Park, Lahug, Cebu City</h4>
+        <h4>{{event.start_datetime | amCalendar}} to {{event.end_datetime | amCalendar}} </h4>
+        <h5>@{{event.venue}}</h5>
         <p>
           {{event.description}}
         </p>
@@ -19,4 +20,4 @@
   </li>
 </ul>
 
-<pager total-items="totalItems" ng-model="currentPage"></pager>
+<pagination total-items="totalItems" ng-model="currentPage"></pagination>
