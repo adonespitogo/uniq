@@ -126,7 +126,7 @@ return array(
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
 		'Zizaco\Confide\ServiceProvider',
 		'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
-		
+		'Way\Generators\GeneratorsServiceProvider'
 	),
 
 	/*
