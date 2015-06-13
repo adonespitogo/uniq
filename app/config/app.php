@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'UT7w6MttISs8v85Ngb67gjmq8YG8qXcH',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -125,7 +125,8 @@ return array(
 		'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
 		'Zizaco\Confide\ServiceProvider',
-
+		'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
+		
 	),
 
 	/*

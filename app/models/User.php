@@ -21,4 +21,7 @@ class User extends Eloquent implements ConfideUserInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function hasRole($role){
+		return false;#in_array(Auth::User()->roles, $role)
+	}
 }
