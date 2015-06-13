@@ -15,7 +15,13 @@
 //= require angular-resource
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.13.0
+//= require moment
+//= require angular-moment
+//
 //= require app/app
+//= require app/routes
+//= require app/config
+//= require app/init
 //= require_tree ./app/controllers
 //= require_tree ./app/services
 //= require_tree ./app/views

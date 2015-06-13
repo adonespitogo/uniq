@@ -15,18 +15,9 @@ class CommentsController extends ApiController {
 	}
 
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-
-	}
-
 
 	/**
+
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
@@ -35,7 +26,8 @@ class CommentsController extends ApiController {
 	{
 		$input = Input::only('event_id','content','user_id');
 		Comment::create($input);
-		return Response::json('ok');
+
+		return Response::make('', 200);
 	}
 
 
@@ -47,7 +39,7 @@ class CommentsController extends ApiController {
 	 */
 	public function show($id)
 	{
-		//
+		return Response::json(Comment::find($id));
 	}
 
 
@@ -57,10 +49,6 @@ class CommentsController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
-	}
 
 
 	/**
@@ -89,8 +77,8 @@ class CommentsController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		Comment::find(Input::get('id'))->delete();
-		return Response::json('ok');
+		Comment::find($id)->delete();
+		return Response::make('', 200);
 	}
 
 

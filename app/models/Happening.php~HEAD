@@ -1,6 +1,7 @@
 <?php
 use LaravelBook\Ardent\Ardent;
-class Event extends Ardent {
+class Happening extends Ardent {
+  protected $table = 'events';
 	protected $fillable = ['title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue'];
 
   public function attachments()

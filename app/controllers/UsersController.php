@@ -200,4 +200,9 @@ class UsersController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function currentUser()
+    {
+        return Auth::user();
+    }
 }

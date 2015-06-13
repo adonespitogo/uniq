@@ -20,11 +20,6 @@ class FavouritesController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-
-	}
-
 
 	/**
 	 * Store a newly created resource in storage.

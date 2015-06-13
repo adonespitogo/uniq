@@ -1,0 +1,31 @@
+<h1>{{event.title}}</h1>
+<h3>{{event.start_datetime | amCalendar}} - {{event.end_datetime | amCalendar}} @{{event.venue}}</h3>
+<p>{{event.description}}</p>
+
+<hr>
+<h3>Comments</h3>
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="i in [1,2,3]">
+    <div class="row">
+      <div class="col-md-1 col-sm-2 text-center">
+        <img src="/assets/profile.jpg" class="img-responsive" alt="">
+      </div>
+      <div class="col-md-11 col-sm-10">
+        <b>Adones Pitogo</b> <small><i>June 12 11:00 AM</i></small>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa labore voluptas, sint voluptates animi laboriosam eius debitis eligendi. Ex repellendus quo eligendi officia sint cum a veniam blanditiis, autem deserunt.</p>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <form action="" class="form-vertical">
+      <div class="form-group">
+        <label for="" class="control-label">Reply:</label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success">Comment</button>
+      </div>
+    </form>
+  </li>
+</ul>
