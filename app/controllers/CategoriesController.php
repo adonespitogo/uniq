@@ -31,7 +31,9 @@ class CategoriesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::only('name','description','slug','restricted');
+		Category::create($input);
+		return ':P';
 	}
 
 
