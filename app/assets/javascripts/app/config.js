@@ -6,7 +6,8 @@
     '$window',
     'Category',
     '$state',
-    function ($rootScope, $window, Category, $state) {
+    'toastr',
+    function ($rootScope, $window, Category, $state, toastr) {
       $rootScope.title = 'Uniq';
       $rootScope.user = angular.copy($window.user);
       delete $window.user;
@@ -16,6 +17,7 @@
           if(categories.length === 0 && toState.name !== 'app.settings'){
             event.preventDefault();
             $state.go('app.settings');
+            toastr.warning('Please tell us your category of interest first so we know what information to cater.');
           }
         });
       });

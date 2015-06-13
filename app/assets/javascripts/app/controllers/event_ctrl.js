@@ -6,9 +6,8 @@
     'Event',
     '$stateParams',
     function ($scope, Event, $stateParams) {
-      Event.get($stateParams, function (event) {
+      Event.get($stateParams.id).then(function (event) {
         $scope.event = event;
-        console.log(event);
       });
     }
   ]);

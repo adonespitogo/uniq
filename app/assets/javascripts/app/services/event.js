@@ -15,6 +15,14 @@
         return def.promise;
       };
 
+      Event.get = function(id) {
+        var def = $q.defer();
+        $http.get('/events/'+id).then(function (resp) {
+          def.resolve(resp.data);
+        });
+        return def.promise;
+      };
+
     }]);
 
 }).call(this);

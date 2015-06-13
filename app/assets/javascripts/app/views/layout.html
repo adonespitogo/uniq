@@ -12,7 +12,7 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" collapse="!isCollapsed">
       <ul class="nav navbar-nav">
         <li>
-          <a href="../getting-started/">Categories</a>
+          <a ui-sref="app.categories">Categories</a>
         </li>
         <li>
           <a href="../getting-started/">Favorites</a>
@@ -21,11 +21,12 @@
       <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" dropdown="">
               <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                  <img ng-src="{{user.avatar_url}}" alt="" class="img-responsive">
                   {{user.first_name}} {{user.last_name}} <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><a ui-sref="app.profile">Profile</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a ui-sref="app.settings">Settings</a></li>
                 <li><a href="/users/logout">Logout <span class="fa fa-sign-out pull-right"></span></a></li>
               </ul>
           </li>

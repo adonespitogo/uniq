@@ -8,10 +8,12 @@
     function ($scope, $rootScope, Event) {
 
       $scope.currentPage = 1;
+      $scope.totalItems = 0;
 
       var fetchEvents = function () {
-        Event.fetch($scope.currentPage).then(function (events) {
-          $scope.events = events;
+        Event.fetch($scope.currentPage).then(function (resp) {
+          $scope.events = resp.data;
+          $scope.totalItems = resp.total;
         });
       }
 
