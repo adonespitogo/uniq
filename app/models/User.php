@@ -32,7 +32,7 @@ class User extends Eloquent implements ConfideUserInterface {
 		return in_array(Auth::User()->roles, $role);
 	}
 	public function subscribed_categories(){
-		return $this->belongsToMany('Category', 'users_subscribed_categories','category_id', 'user_id');
+		return $this->belongsToMany('Category', 'users_subscribed_categories','user_id', 'category_id');
 	}
 	public function received_messages(){
 		return $this->hasMany('Message', 'recipient_id');
@@ -44,7 +44,7 @@ class User extends Eloquent implements ConfideUserInterface {
 
 	public function favourite_events()
 	{
-     	return $this->belongsToMany('Happening','users_favourite_events', 'event_id', 'user_id');
+     	return $this->belongsToMany('Happening','users_favourite_events', 'user_id', 'event_id');
 	}
 
 	public function comments($value='')

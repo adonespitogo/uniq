@@ -27,6 +27,7 @@ class CategoriesController extends ApiController {
    public function getMyCategories($value='')
    {
       $categories = $this->current_user()->subscribed_categories()->get();
+      return $categories;
     if (count($categories) > 0){
           $categories_id = $this->current_user()->subscribed_categories()->get();
             $all_categories =DB::table('categories')->get();

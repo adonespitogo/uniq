@@ -15,7 +15,7 @@ class Happening extends Eloquent {
   }
 
   public function categories(){
-    return $this->belongsToMany('Category', 'events_categories', 'category_id', 'event_id');
+    return $this->belongsToMany('Category', 'events_categories', 'event_id', 'category_id');
   }
 
   public function publisher(){

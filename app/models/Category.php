@@ -4,7 +4,7 @@ class Category extends \Eloquent {
 	protected $fillable = ['name','description','slug','restricted'];
 
   public function events(){
-    return $this->belongsToMany('Happening', 'events_categories', 'event_id', 'category_id');
+    return $this->belongsToMany('Happening', 'events_categories', 'category_id','event_id');
   }
 
   public function allowed_users(){
