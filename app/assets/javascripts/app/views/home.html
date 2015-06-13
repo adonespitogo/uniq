@@ -1,6 +1,6 @@
-<h1>Upcoming Events</h1>
+<h1 class="text-center">Upcoming Events</h1>
 
-<ul class="list-group">
+<ul class="list-group padd-top-20">
   <li class="list-group-item" ng-repeat="event in events">
     <div class="row">
       <div class="col-md-4">
@@ -18,6 +18,8 @@
       </div>
     </div>
   </li>
+  <li class="list-group-item" ng-show="events.length === 0">
+    No Events to show.
+  </li>
 </ul>
 
-<pagination total-items="totalItems" ng-model="currentPage"></pagination>

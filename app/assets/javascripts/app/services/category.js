@@ -44,6 +44,15 @@
         return def.promise;
       };
 
+      this.events = function (cat_id) {
+        var def = $q.defer();
+        $http.get('/category/events/'+cat_id).then(function (resp) {
+          def.resolve(resp.data);
+        });
+        return def.promise;
+
+      };
+
     }
   ]);
 }).call(this);
