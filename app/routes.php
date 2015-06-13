@@ -20,8 +20,13 @@ Route::get('/', function()
 Route::group(['before' => 'auth' ],function(){
   Route::resource('events','EventsController');
   Route::resource('categories','CategoriesController');
+  Route::resource('comments','CommentsController');
+  Route::resource('roles','RolesController');
+
   Route::controller('event','EventsController');
-  Route::controller('categorie','CategoriesController');
+  Route::controller('category','CategoriesController');
+  Route::controller('comment','CommentsController');
+  Route::controller('role','RolesController');
 });
 
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
