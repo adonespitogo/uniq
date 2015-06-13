@@ -48,6 +48,7 @@ class User extends Eloquent implements ConfideUserInterface {
 	{	
 		$items = Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
 			  ->leftJoin('users_subscribed_categories', 'users_subscribed_categories.category_id', '=', 'events_categories.category_id')
+			  ->leftJoin('categories','categories.id', '=', 'users_subscribed_categories.category_id')
 			  ->where('users_subscribed_categories.user_id', $this->id);
 			  // ->where('events.start_datetime', '<=', $this->number_of_days);
 
