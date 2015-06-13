@@ -9,7 +9,9 @@ class CommentsController extends ApiController {
 	 */
 	public function index()
 	{
-		//
+		return Response::json(
+			$this->current_user()->comments
+		);
 	}
 
 
@@ -20,9 +22,7 @@ class CommentsController extends ApiController {
 	 */
 	public function create()
 	{
-		$input = Input::only('event_id','content','user_id');
-		Comment::create($input);
-		return Response::json('ok');
+
 	}
 
 
@@ -33,7 +33,9 @@ class CommentsController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::only('event_id','content','user_id');
+		Comment::create($input);
+		return Response::json('ok');
 	}
 
 
@@ -69,7 +71,13 @@ class CommentsController extends ApiController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::only('event_id','content','user_id');
+		$comment = Comment::find(Input::get('id'));
+		$comment->event_id = $input['event_id'];
+		$comment->content = $input['content'];
+		$comment->user_id = $input['user_id'];
+		$comment->save();
+		return Response::json('ok');
 	}
 
 
@@ -81,7 +89,8 @@ class CommentsController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Comment::find(Input::get('id'))->delete();
+		return Response::json('ok');
 	}
 
 

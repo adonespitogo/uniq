@@ -39,9 +39,20 @@ class User extends Eloquent implements ConfideUserInterface {
 		return $this->hasMany('Message','sender_id');
 	}
 
-	public function favourites($value='')
+	public function favourite_events()
 	{
-     	return $this->hasMany('Event','user_favourite_events','user_id', 'event_id');
+     	return $this->belongsToMany('Event','users_favourite_events', 'event_id','user_id');
+	}
+
+	public function comments($value='')
+	{
+		return $this->hasMany('Comment');
+	}
+	public function disaster($value='')
+	{
+		Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
+			  ->leftJoin('users_subscribed_categories', 'users_subscribed_categories.category_id', '=', 'events_categories.category_id')
+			  ->where('users_subscribed_categories.user_id', $this->id)->get();
 	}
 
 }
