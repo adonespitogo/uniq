@@ -21,6 +21,13 @@ class User extends Eloquent implements ConfideUserInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function toArray()
+  {
+      $array = parent::toArray();
+      $array['avatar_url'] = $this->avatar_url;
+      return $array;
+  }
+
 	public function hasRole($role){
 		return in_array(Auth::User()->roles, $role);
 	}
@@ -62,6 +69,10 @@ class User extends Eloquent implements ConfideUserInterface {
 
 	public function published_events(){
 		return $this->hasMany('Happening');
+	}
+
+	public function getAvatarUrlAttribute(){
+		return Gravatar::url($this->email);
 	}
 
 }

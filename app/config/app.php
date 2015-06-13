@@ -128,6 +128,7 @@ return array(
 		'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Jenssegers\Agent\AgentServiceProvider',
+		'Kevindierkx\GravatarHelper\Laravel\GravatarServiceProvider',
 
 	),
 
@@ -198,6 +199,7 @@ return array(
 		'Authorizer' 				=> 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
 		'Confide' 					=> 'Zizaco\Confide\Facade',
 		'Agent'							=> 'Jenssegers\Agent\Facades\Agent',
+		'Gravatar'          => 'Kevindierkx\GravatarHelper\Laravel\Facades\Gravatar',
 	),
 
 );
