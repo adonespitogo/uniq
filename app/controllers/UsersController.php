@@ -209,4 +209,9 @@ class UsersController extends Controller
     {
         return Auth::user();
     }
+    public function postFollow($id=0)
+    {
+        Auth::user()->subscribed_categories()->save(Category::find(Input::get('category_id')));
+         return Response::make('',200);
+    }
 }

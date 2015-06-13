@@ -10,7 +10,7 @@ class FavouritesController extends ApiController {
 	public function index()
 	{
         return Response::json(
-			$this->current_user()->disaster()
+			$this->current_user()->events()
 		);
 	}
 
@@ -30,6 +30,7 @@ class FavouritesController extends ApiController {
 	{
 		 $event = Happening::find(Input::get('id'));
 		 $this->current_user()->favourite_events()->save($event);
+		 return Response::make('',200);
 	}
 
 
@@ -77,7 +78,7 @@ class FavouritesController extends ApiController {
 	public function destroy($id)
 	{
 		$this->current_user()->favourite_events()->newPivotStatements(Input::get('id'))->delete();
-		return Response::json('ok');
+		return Response::make('',200);
 	}
 
 
