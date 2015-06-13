@@ -3,7 +3,7 @@
   <head>
     <!-- Basic Page Needs
     ================================================== -->
-    <meta charset="utf-8" />
+    <meta charset="UTF-8"/>
     <title>
       @section('title')
       Laravel 4 Sample Site
