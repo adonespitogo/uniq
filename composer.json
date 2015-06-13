@@ -9,7 +9,8 @@
 		"codesleeve/asset-pipeline": "dev-master",
 		"lucadegasperi/oauth2-server-laravel": "3.*",
 		"laravelbook/ardent": "2.*",
-		"zizaco/confide": "~4.3@dev"
+		"zizaco/confide": "~4.3@dev",
+		"codesleeve/laravel-stapler": "1.0.*"
 	},
 	"autoload": {
 		"classmap": [
