@@ -35,6 +35,11 @@
           template: JST['app/views/categories'],
           controller: 'CategoriesCtrl as CategoriesCtrl'
         })
+        .state('app.categories.category', {
+          url: '/category/:id',
+          template: JST['app/views/category'],
+          controller: 'CategoryCtrl as CategoryCtrl'
+        })
         .state('app.settings', {
           url: 'settings',
           template: JST['app/views/settings'],
