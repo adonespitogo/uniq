@@ -2,11 +2,13 @@
 class Happening extends Eloquent {
   protected $table = 'events';
 	protected $fillable = ['title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue'];
-
+  
   public function toArray()
   {
       $array = parent::toArray();
+
       $array['categories'] = $this->categories;
+
       return $array;
   }
   public function attachments()

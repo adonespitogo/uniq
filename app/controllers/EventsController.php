@@ -11,10 +11,7 @@ class EventsController extends ApiController {
 		$result = $this->current_user()->events();
 		return Response::json($result);
 	}
-	public function getByPage($page = 1, $limit = 10){
-		$result = $this->current_user()->events($page, $limit);
-		return Paginator::make($result['items'], $result['itemTotal'], $result['page']);
-	}
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -83,7 +80,7 @@ class EventsController extends ApiController {
 	}
 
 	public function getFavorites(){
-		return Response::json($this->current_user()->favourite_events()->get());
+		return Response::json($this->current_user()->favourite_events()->get()->toArray());
 	}
 	/**
 	 * Remove the specified resource from storage.

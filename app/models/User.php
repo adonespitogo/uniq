@@ -63,7 +63,7 @@ class User extends Eloquent implements ConfideUserInterface {
 			  // ->where('events.start_datetime', '>=', $date)
 			  // ->where('events.start_datetime', '<=', $date2);
 
-		return $items->get()->toArray();
+		return $items->get()->toArray($this->id);
 	}
 
 	public function published_events(){
