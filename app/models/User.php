@@ -25,7 +25,7 @@ class User extends Eloquent implements ConfideUserInterface {
 		return in_array(Auth::User()->roles, $role);
 	}
 	public function subscribed_categories(){
-		return $this->belongsToMany('Category', 'users_subscribed_categories','user_id','category_id');
+		return $this->belongsToMany('Category', 'users_subscribed_categories','category_id', 'user_id');
 	}
 	public function received_messages(){
 		return $this->hasMany('Message', 'recipient_id');
@@ -37,24 +37,31 @@ class User extends Eloquent implements ConfideUserInterface {
 
 	public function favourite_events()
 	{
-     	return $this->belongsToMany('Event','users_favourite_events', 'event_id','user_id');
+     	return $this->belongsToMany('Happening','users_favourite_events', 'event_id', 'user_id');
 	}
 
 	public function comments($value='')
 	{
 		return $this->hasMany('Comment');
 	}
-	public function events($page, $limit)
-	{
+	public function events($page=1, $limit=1)
+	{	
 		$items = Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
 			  ->leftJoin('users_subscribed_categories', 'users_subscribed_categories.category_id', '=', 'events_categories.category_id')
+			  ->leftJoin('categories','categories.id', '=', 'users_subscribed_categories.category_id')
 			  ->where('users_subscribed_categories.user_id', $this->id);
+			  // ->where('events.start_datetime', '<=', $this->number_of_days);
 
 		return [
-			$items->skip($limit * ($page - 1))->take($limit)->get()->all(),
-			$items->count(),
-			$page
+			'allItems' => $items->get()->toArray(),
+			'items'=>$items->skip($limit * ($page - 1))->take($limit)->get()->toArray(),
+			'itemTotal' =>$items->count(),
+			'page' =>$page
 		];
+	}
+
+	public function published_events(){
+		return $this->hasMany('Happening');
 	}
 
 }

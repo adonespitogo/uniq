@@ -7,14 +7,13 @@ class EventsController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return Response::json($this->current_user()->events());
+	public function index(){
+		$result = $this->current_user()->events();
+		return Response::json($result['allItems']);
 	}
-
 	public function getByPage($page = 1, $limit = 10){
 		$result = $this->current_user()->events($page, $limit);
-		Paginator::make($result[0], $result[1], $result[2]);
+		return Paginator::make($result['items'], $result['itemTotal'], $result['page']);
 	}
 	/**
 	 * Store a newly created resource in storage.
@@ -24,8 +23,10 @@ class EventsController extends ApiController {
 	public function store()
 	{
 		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
+		$input['user_id'] = $this->current_user()->id;
 		$happening = Happening::create($input);
-		$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
+		if (Input::has('file'))
+			$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
 		return Response::make('', 200);
 	}
 
@@ -67,7 +68,20 @@ class EventsController extends ApiController {
 		return Response::make('', 200);
 	}
 
+	public function getMarkFavorite($id){
+		$data = DB::table('users_favourite_events')->where(['user_id'=>$this->current_user()->id, 'event_id'=>$id])->count();
+		if ($data <= 0) DB::table('users_favourite_events')->insert(['user_id'=>$this->current_user()->id, 'event_id'=>$id]);
+		return Response::json('',200);
+	}
 
+	public function getUnmarkFavorite($id){
+		DB::table('users_favourite_events')->where(['user_id'=>$this->current_user()->id, 'event_id'=>$id])->delete();
+		return Response::json('',200);
+	}
+
+	public function getFavorites(){
+		return Response::json($this->current_user()->favourite_events()->get());
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -81,6 +95,6 @@ class EventsController extends ApiController {
 	}
 	public function getMyEvents($id=0)
 	{
-
+		return $this->current_user()->published_events()->get();
 	}
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEventsUsersTable extends Migration {
+class AddUserIdToEventsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,8 +14,7 @@ class CreateEventsUsersTable extends Migration {
 	{
 		Schema::create('events_users', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->timestamps();
+			$table->integer('user_id');
 		});
 	}
 
@@ -27,7 +26,7 @@ class CreateEventsUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('events_users');
+		Schema::drop('user_id');
 	}
 
 }
