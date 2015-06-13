@@ -23,8 +23,10 @@ class EventsController extends ApiController {
 	public function store()
 	{
 		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
+		$input['user_id'] = $this->current_user()->id;
 		$happening = Happening::create($input);
-		$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
+		if (Input::has('file'))
+			$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
 		return Response::make('', 200);
 	}
 
@@ -93,6 +95,6 @@ class EventsController extends ApiController {
 	}
 	public function getMyEvents($id=0)
 	{
-
+		return $this->current_user()->published_events()->get();
 	}
 }

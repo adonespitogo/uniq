@@ -60,4 +60,8 @@ class User extends Eloquent implements ConfideUserInterface {
 		];
 	}
 
+	public function published_events(){
+		return $this->hasMany('Happening');
+	}
+
 }
