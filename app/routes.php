@@ -16,4 +16,12 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+
+Route::group(['before' => 'auth' ],function(){
+  Route::resource('events','EventsController');
+  Route::resource('categories','CategoriesController');
+  Route::controller('event','EventsController');
+  Route::controller('categorie','CategoriesController');
+});
+
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
