@@ -9,7 +9,13 @@ class CategoriesController extends ApiController {
 	 */
 	public function index()
 	{
-		//
+		$categories = $this->current_user()->subscribed_categories;
+		if (count($categories) > 0){
+			return Response::json($categories);
+		}else{
+			return Response::json([]);
+		}
+
 	}
 
 
@@ -18,10 +24,6 @@ class CategoriesController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
-	}
 
 
 	/**
@@ -33,7 +35,7 @@ class CategoriesController extends ApiController {
 	{
 		$input = Input::only('name','description','slug','restricted');
 		Category::create($input);
-		return Response::json('ok');
+		return Response::make('', 200);
 	}
 
 
@@ -49,6 +51,18 @@ class CategoriesController extends ApiController {
 	}
 
 
+	public function getAll(){
+		return Response::json(Category::all());
+	}
+
+	public function getEvents($category_id){
+		$category = Category::find($category_id);
+		if (count($category->events) > 0){
+			return Response::json($category->events);
+		}else{
+			return Response::json([]);
+		}
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -82,7 +96,7 @@ class CategoriesController extends ApiController {
 	public function destroy($id)
 	{
 		Category::find(Input::get('id'))->delete();
-		return Response::json('ok');
+		return Response::make('', 200);
 	}
 
 

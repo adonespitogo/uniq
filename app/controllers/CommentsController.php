@@ -9,21 +9,11 @@ class CommentsController extends ApiController {
 	 */
 	public function index()
 	{
-		//
+		return Response::json(
+			$this->current_user()->comments
+		);
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$input = Input::only('event_id','content','user_id');
-		Comment::create($input);
-		return Response::json('ok');
-	}
 
 
 	/**
@@ -33,7 +23,11 @@ class CommentsController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::only('event_id','content');
+		$input['user_id'] = $this->current_user()->id;
+		Comment::create($input);
+
+		return Response::make('', 200);
 	}
 
 
@@ -45,7 +39,7 @@ class CommentsController extends ApiController {
 	 */
 	public function show($id)
 	{
-		//
+		return Response::json(Comment::find($id));
 	}
 
 
@@ -55,10 +49,6 @@ class CommentsController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
-	}
 
 
 	/**
@@ -69,7 +59,13 @@ class CommentsController extends ApiController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::only('event_id','content','user_id');
+		$comment = Comment::find(Input::get('id'));
+		$comment->event_id = $input['event_id'];
+		$comment->content = $input['content'];
+		$comment->user_id = $input['user_id'];
+		$comment->save();
+		return Response::json('ok');
 	}
 
 
@@ -81,7 +77,8 @@ class CommentsController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Comment::find($id)->delete();
+		return Response::make('', 200);
 	}
 
 

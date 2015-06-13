@@ -9,7 +9,9 @@ class FavouritesController extends ApiController {
 	 */
 	public function index()
 	{
-		//
+        return Response::json(
+			$this->current_user()->disaster()
+		);
 	}
 
 
@@ -18,13 +20,6 @@ class FavouritesController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		$input=Input::only('event_id','user_id');
-		Favourite::create($input);
-		return Response::json('ok');
-	}
-
 
 	/**
 	 * Store a newly created resource in storage.
@@ -33,7 +28,8 @@ class FavouritesController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		 $event = Happening::find(Input::get('id'));
+		 $this->current_user()->favourite_events()->save($event);
 	}
 
 
@@ -69,7 +65,6 @@ class FavouritesController extends ApiController {
 	 */
 	public function update($id)
 	{
-		//
 	}
 
 
@@ -81,7 +76,8 @@ class FavouritesController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$this->current_user()->favourite_events()->newPivotStatements(Input::get('id'))->delete();
+		return Response::json('ok');
 	}
 
 
