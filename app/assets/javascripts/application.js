@@ -11,14 +11,21 @@
 // The available directives right now are require, require_directory, and require_tree
 //
 //= require jquery
+//= require underscore
 //= require angular
 //= require angular-resource
+//= require angular-animate
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.13.0
+//= require moment
+//= require angular-moment
+//= require angular-toastr
+//= require angular-toastr.tpls
 //
 //= require app/app
 //= require app/routes
 //= require app/config
+//= require app/init
 //= require_tree ./app/controllers
 //= require_tree ./app/services
 //= require_tree ./app/views

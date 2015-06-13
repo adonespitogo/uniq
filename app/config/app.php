@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'UT7w6MttISs8v85Ngb67gjmq8YG8qXcH',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -124,6 +124,12 @@ return array(
 		'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 		'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
+		'Zizaco\Confide\ServiceProvider',
+		'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
+		'Jenssegers\Agent\AgentServiceProvider',
+		'Kevindierkx\GravatarHelper\Laravel\GravatarServiceProvider',
+
 	),
 
 	/*
@@ -191,6 +197,9 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Authorizer' 				=> 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
+		'Confide' 					=> 'Zizaco\Confide\Facade',
+		'Agent'							=> 'Jenssegers\Agent\Facades\Agent',
+		'Gravatar'          => 'Kevindierkx\GravatarHelper\Laravel\Facades\Gravatar',
 	),
 
 );

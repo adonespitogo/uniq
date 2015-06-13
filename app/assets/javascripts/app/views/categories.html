@@ -1,0 +1,14 @@
+<h1 class="text-center">
+  Subscribed Event Categories
+</h1>
+<div class="row padd-top-20">
+  <div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" ui-sref-active="active" ng-repeat="category in categories">
+        <a ui-sref="app.categories.category({id: category.id})">
+        {{category.name}}
+        </a></li>
+    </ul>
+  </div>
+  <div class="col-md-9" ui-view></div>
+</div>

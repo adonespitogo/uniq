@@ -1,0 +1,74 @@
+<h1>{{user.first_name}} {{user.last_name}}</h1>
+<hr>
+<tabset vertical="false" type="pills">
+  <tab heading="Basic Info">
+    <form class="padd-top-20">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">First Name</label>
+            <input type="text" ng-model="usr.first_name" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Last Name</label>
+            <input type="text" ng-model="usr.last_name" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" ng-model="usr.email" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Gender</label>
+            <select name="" ng-model="usr.gender" class="form-control">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <legend for="">Birth date</legend>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="">Date (dd)</label>
+            <input type="text" ng-model="usr.birth.date" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="">Month (mm)</label>
+            <input type="text" ng-model="usr.birth.month" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="">Year <i>(YYYY)</i></label>
+            <input type="text" ng-model="usr.birth.year" class="form-control">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" ng-click="updateUser()">Save</button>
+    </form>
+  </tab>
+  <tab heading="Change Password">
+    <form class="padd-top-20">
+      <div class="form-group">
+        <label for="">New Password</label>
+        <input type="password" ng-model="usr.password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Confirm Password</label>
+        <input type="password" ng-model="usr.password_confirmation" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-success" ng-click="updatePassword()">Update</button>
+    </form>
+  </tab>
+</tabset>
