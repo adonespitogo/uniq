@@ -22,11 +22,15 @@ Route::group(['before' => 'auth' ],function(){
   Route::resource('categories','CategoriesController');
   Route::resource('comments','CommentsController');
   Route::resource('roles','RolesController');
+  Route::resource('messages','MessagesController');
+  Route::resource('favourites','FavouritesController');
 
   Route::controller('event','EventsController');
   Route::controller('category','CategoriesController');
   Route::controller('comment','CommentsController');
   Route::controller('role','RolesController');
+  Route::controller('message','MessagesController');
+  Route::controller('favourite','FavouritesController');
 });
 
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
@@ -43,3 +47,8 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+
+
+App::missing(function($exception){
+	return '404 template';
+});
