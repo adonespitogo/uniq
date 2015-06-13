@@ -47,6 +47,13 @@
         });
         return def.promise;
       };
+      Event.unmarkFavorite = function(id) {
+        var def = $q.defer();
+        $http.get('/event/unmark-favorite/'+id).then(function (resp) {
+          def.resolve(resp.data);
+        });
+        return def.promise;
+      };
 
     }]);
 
