@@ -29,6 +29,11 @@
           url: 'event/:id',
           template: JST['app/views/event'],
           controller: 'EventCtrl as EventCtrl'
+        })
+        .state('app.settings', {
+          url: 'settings',
+          template: JST['app/views/settings'],
+          controller: 'SubscribeCategoriesCtrl as SubscribeCategoriesCtrl'
         });
 
     }

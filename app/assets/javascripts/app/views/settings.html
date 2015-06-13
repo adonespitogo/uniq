@@ -1,0 +1,18 @@
+<h1>Settings</h1>
+<tabset vertical="false" type="pills">
+  <tab heading="Subscribed Categories" ng-controller="SubscribeCategoriesCtrl">
+    <form class="padd-top-20">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="category in categories">
+          <div class="form-group">
+            <div class="checkbox">
+              <label for="">
+                <input type="checkbox" ng-model="category.selected" ng-change="toggleFollow(category)"> <b>{{category.name}}</b> <p>{{category.description}}</p>
+              </label>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </tab>
+</tabset>
