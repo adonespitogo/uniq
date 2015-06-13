@@ -20,6 +20,11 @@
           template: JST['app/views/home'],
           controller: 'HomeCtrl as HomeCtrl'
         })
+        .state('app.profile', {
+          url: 'profile',
+          template: JST['app/views/profile'],
+          controller: 'ProfileCtrl as ProfileCtrl'
+        })
         .state('app.event', {
           url: 'event/:id',
           template: JST['app/views/event'],

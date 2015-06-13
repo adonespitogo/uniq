@@ -24,6 +24,8 @@ Route::controller('favourite','FavouritesController');
 Route::post('oauth/access_token', 'OAuthController@postAccessToken');
 Route::controller('oauth', 'OAuthController');
 Route::get('me', array('before' => 'auth', 'uses' => 'UsersController@currentUser'));
+Route::put('users/{id}', array('before' => 'auth', 'uses' => 'UsersController@updateUser'));
+Route::put('users/{id}/password', array('before' => 'auth', 'uses' => 'UsersController@updatePassword'));
 
 //
 
