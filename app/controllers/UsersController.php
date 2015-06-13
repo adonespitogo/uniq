@@ -189,10 +189,6 @@ class UsersController extends Controller
         return View::make('users.account')->with('user', Auth::User());
     }
 
-    public function postNotifyDate(){
-        
-    }
-
     /**
      * Log the user out of the application.
      *

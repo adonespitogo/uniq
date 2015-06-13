@@ -51,9 +51,9 @@ class User extends Eloquent implements ConfideUserInterface {
 			  ->where('users_subscribed_categories.user_id', $this->id);
 
 		return [
-			$items->skip($limit * ($page - 1))->take($limit)->get()->all(),
-			$items->count(),
-			$page
+			'items'=>$items->skip($limit * ($page - 1))->take($limit)->get()->toArray(),
+			'itemTotal' =>$items->count(),
+			'page' =>$page
 		];
 	}
 

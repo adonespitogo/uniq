@@ -7,14 +7,10 @@ class EventsController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return Response::json($this->current_user()->events());
-	}
 
 	public function getByPage($page = 1, $limit = 10){
 		$result = $this->current_user()->events($page, $limit);
-		Paginator::make($result[0], $result[1], $result[2]);
+		return Paginator::make($result['items'], $result['itemTotal'], $result['page']);
 	}
 	/**
 	 * Store a newly created resource in storage.

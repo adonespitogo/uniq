@@ -30,6 +30,7 @@ Route::get('me', array('before' => 'auth', 'uses' => 'UsersController@currentUse
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');
+Route::controller('account', 'AccountController');
 Route::get('users/login', 'UsersController@login');
 Route::get('login', 'UsersController@login');
 Route::post('users/login', 'UsersController@doLogin');
