@@ -16,6 +16,7 @@ class CreateMessagesTable extends Migration {
          $table->increments('id');
          $table->integer('sender_id');
          $table->integer('recipient_id');
+         $table->integer('reply_to_id');
          $table->text('message');
          $table->enum('status',['read','unread']);
 		 $table->timestamps();

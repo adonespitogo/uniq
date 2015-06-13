@@ -10,7 +10,7 @@ class EventsController extends ApiController {
 	public function index()
 	{
 		return Response::json(
-			$this->current_user()->events
+			$this->current_user()->favourites
 		);
 	}
 

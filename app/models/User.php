@@ -39,4 +39,9 @@ class User extends Eloquent implements ConfideUserInterface {
 		return $this->hasMany('Message','sender_id');
 	}
 
+	public function favourites($value='')
+	{
+     	return $this->hasMany('Event','user_favourite_events','user_id', 'event_id');
+	}
+
 }
