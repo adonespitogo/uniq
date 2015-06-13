@@ -7,8 +7,16 @@
     'Event',
     function ($scope, $rootScope, Event) {
 
-      Event.query(function (events) {
-        $scope.events = events;
+      $scope.currentPage = 1;
+
+      var fetchEvents = function () {
+        Event.fetch($scope.currentPage).then(function (events) {
+          $scope.events = events;
+        });
+      }
+
+      $scope.$watch('currentPage', function () {
+        fetchEvents();
       });
 
     }]);
