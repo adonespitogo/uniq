@@ -20,7 +20,9 @@ class CommentsController extends ApiController {
 	 */
 	public function create()
 	{
-		//
+		$input = Input::only('event_id','content','user_id');
+		Comment::create($input);
+		return Response::json('ok');
 	}
 
 

@@ -20,7 +20,9 @@ class MessagesController extends ApiController {
 	 */
 	public function create()
 	{
-		//
+		$input=Input::only('sender_id','recipient_id','message','status');
+		Message::create($input);
+		return Response::json('ok');
 	}
 
 

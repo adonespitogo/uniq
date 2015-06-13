@@ -33,7 +33,7 @@ class CategoriesController extends ApiController {
 	{
 		$input = Input::only('name','description','slug','restricted');
 		Category::create($input);
-		return ':P';
+		return Response::json('ok');
 	}
 
 
@@ -81,7 +81,8 @@ class CategoriesController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Category::find(Input::get('id'))->delete();
+		return Response::json('ok');
 	}
 
 

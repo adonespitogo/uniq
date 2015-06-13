@@ -20,7 +20,9 @@ class EventsController extends ApiController {
 	 */
 	public function create()
 	{
-		//
+		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
+		EventsController::create($input);
+		return Response::json('ok');
 	}
 
 
