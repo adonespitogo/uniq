@@ -23,8 +23,9 @@ class EventsController extends ApiController {
 	public function store()
 	{
 		$input = Input::only('title', 'description', 'slug', 'start_datetime', 'end_datetime', 'venue');
-		$input['user_id'] = $this->current_user()->id;
+		$input['user_id'] = (integer)$this->current_user()->id;
 		$happening = Happening::create($input);
+		DB::table('events_categories')->insert(['category_id'=>Input::get('category_id'), 'event_id'=>$happening->id]);
 		if (Input::has('file'))
 			$attachment = Attachment::create(['attachable_type'=>'Happening', 'attachable_id'=>$happening->id, 'file'=>Input::file('file')]);
 		return Response::make('', 200);
