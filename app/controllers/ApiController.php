@@ -19,4 +19,7 @@ class ApiController extends Controller {
       return Auth::user();
     }
   }
+  public function resource_owner_id(){
+    return $this->authorizer->getResourceOwnerId();
+  }
 }

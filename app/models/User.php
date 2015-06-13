@@ -51,23 +51,19 @@ class User extends Eloquent implements ConfideUserInterface {
 	{
 		return $this->hasMany('Comment');
 	}
-	public function events($page=1, $limit=1)
+	public function events()
 	{	
 		$date = date('Y-m-d',(strtotime ( '-'+$this->number_of_days+' day' , strtotime ( '2015-06-11 09:00:00') ) ));
 		$date2 = date('Y-m-d');
+
 		$items = Happening::leftJoin('events_categories', 'events_categories.event_id', '=', 'events.id')
 			  ->leftJoin('users_subscribed_categories', 'users_subscribed_categories.category_id', '=', 'events_categories.category_id')
 			  ->leftJoin('categories','categories.id', '=', 'users_subscribed_categories.category_id')
-			  ->where('users_subscribed_categories.user_id', $this->id);
+			  ->where('users_subscribed_categories.user_id', $this->id)->select('events.*');
 			  // ->where('events.start_datetime', '>=', $date)
 			  // ->where('events.start_datetime', '<=', $date2);
 
-		return [
-			'allItems' => $items->get()->toArray(),
-			'items'=>$items->skip($limit * ($page - 1))->take($limit)->get()->toArray(),
-			'itemTotal' =>$items->count(),
-			'page' =>$page
-		];
+		return $items->get()->toArray();
 	}
 
 	public function published_events(){

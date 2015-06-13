@@ -24,9 +24,9 @@ class CommentsController extends ApiController {
 	public function store()
 	{
 		$input = Input::only('event_id','content');
-		$input['user_id'] = $this->current_user()->id;
-		Comment::create($input);
-
+		$comment = Comment::create($input);
+		$comment->user_id = $this->current_user()->id;
+		$comment->save();
 		return Response::make('', 200);
 	}
 
