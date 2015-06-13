@@ -210,4 +210,37 @@ class UsersController extends Controller
         return Auth::user();
     }
 
+    public function updateUser($id)
+    {
+        $user = Auth::user();
+        $user->first_name = Input::get('first_name');
+        $user->last_name = Input::get('last_name');
+        $user->email = Input::get('email');
+        $user->gender = Input::get('gender');
+        $user->birth_date = Input::get('birth_date');
+        $user->save();
+        return $user;
+    }
+
+    public function updatePassword($id)
+    {
+        $validator = Validator::make(
+        array(
+            'password' => Input::get('password'),
+            'password_confirmation' => Input::get('password_confirmation'),
+        ),
+        array(
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required'
+        ));
+        if($validator->fails()) {
+            return Response::make($validator->messages(), 402);
+        }
+        else {
+            $user = Auth::user();
+            $user->password = Input::get('password');
+            $user->save();
+            return $user;
+        }
+    }
 }
