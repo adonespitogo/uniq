@@ -17,6 +17,6 @@ class Happening extends Eloquent {
   }
 
   public function comments(){
-    return $this->hasMany('Comment');
+    return $this->hasMany('Comment', 'event_id');
   }
 }

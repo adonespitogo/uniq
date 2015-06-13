@@ -14,8 +14,7 @@ class AddNotifyDatesToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->datetime('notify_date_start');
-			$table->datetime('notify_date_end');
+			$table->integer('number_of_days');
 		});
 	}
 
@@ -29,8 +28,7 @@ class AddNotifyDatesToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->dropColumn('notify_date_start');	
-			$table->dropColumn('notify_date_end');	
+			// $table->dropColumn('number_of_days');	
 		});
 	}
 
