@@ -7,9 +7,9 @@
 
       var Event = this;
 
-      Event.fetch = function(page) {
+      Event.fetch = function() {
         var def = $q.defer();
-        $http.get('/event/by-page/'+page).then(function (resp) {
+        $http.get('/events').then(function (resp) {
           def.resolve(resp.data);
         });
         return def.promise;
