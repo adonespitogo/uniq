@@ -1,0 +1,74 @@
+<h1 class="text-center">Post New Event</h1>
+
+<form>
+  <div class="form-group">
+    <label for="">Title</label>
+    <input type="text" ng-model="event.title" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Description</label>
+    <textarea name="" id="" cols="30" rows="5" class="form-control" ng-model="event.description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">Venue</label>
+    <input type="text" class="form-control" ng-model="event.venue">
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="">Categories</label>
+        <select name="" id="" class="form-control" ng-model="event.category_id" ng-options="cat.id as cat.name for cat in categories"></select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="">Event Start Time</label>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">mm</label>
+            <input type="text" class="form-control" ng-model="event.start.mm">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">dd</label>
+            <input type="text" class="form-control" ng-model="event.start.dd">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">yyyy</label>
+            <input type="text" class="form-control" ng-model="event.start.yyyy">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="">Event End Time</label>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">mm</label>
+            <input type="text" class="form-control" ng-model="event.end.mm">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">dd</label>
+            <input type="text" class="form-control" ng-model="event.end.dd">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">yyyy</label>
+            <input type="text" class="form-control" ng-model="event.end.yyyy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success" ng-click="post()">Post</button>
+  <div class="padd-top-20"></div>
+</form>

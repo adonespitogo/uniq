@@ -25,10 +25,20 @@
           template: JST['app/views/profile'],
           controller: 'ProfileCtrl as ProfileCtrl'
         })
+        .state('app.newEvent', {
+          url: 'event/new',
+          template: JST['app/views/new-event'],
+          controller: 'NewEventCtrl as NewEventCtrl'
+        })
         .state('app.event', {
           url: 'event/:id',
           template: JST['app/views/event'],
           controller: 'EventCtrl as EventCtrl'
+        })
+        .state('app.favorites', {
+          url: 'favorites',
+          template: JST['app/views/home'],
+          controller: 'FavoritesCtrl as FavoritesCtrl'
         })
         .state('app.categories', {
           url: 'categories',
