@@ -26,7 +26,14 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
+<<<<<<< HEAD
 	'local' => array('vagrant-ubuntu-trusty-64','codelab'),
+=======
+  'local' => array(
+    'vagrant-ubuntu-trusty-64',
+    'adones-S551LB',
+  ),
+>>>>>>> cf9c1b582154f6da36ae711024dd1014a8b34e98
 
 ));
 

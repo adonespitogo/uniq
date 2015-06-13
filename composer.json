@@ -6,7 +6,9 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"codesleeve/asset-pipeline": "dev-master"
+		"codesleeve/asset-pipeline": "dev-master",
+		"lucadegasperi/oauth2-server-laravel": "3.*",
+		"laravelbook/ardent": "2.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -34,5 +36,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }
